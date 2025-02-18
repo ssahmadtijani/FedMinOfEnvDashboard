@@ -13,7 +13,7 @@ export const Roles = sequelize.define<RolesModelI>(
         roleName: {
             type: DataTypes.STRING,
         },
-        
+
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -22,5 +22,5 @@ export const Roles = sequelize.define<RolesModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )

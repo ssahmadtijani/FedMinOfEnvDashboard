@@ -1,5 +1,5 @@
-import { DataTypes, Sequelize, TransactionOptions } from "sequelize"
-import dotenv from "dotenv"
+import { DataTypes, Sequelize, TransactionOptions } from 'sequelize'
+import dotenv from 'dotenv'
 
 dotenv.config()
 
@@ -8,7 +8,7 @@ const dbUsername = `${process.env.DB_USERNAME}`
 const dbPassword = `${process.env.DB_PASSWORD}`
 const dbName = `${process.env.DB_NAME}`
 
-const sequelize = new Sequelize( dbName, dbUsername, dbPassword, {
+const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
     host: dbServer,
     dialect: 'mysql',
     logging: false,
@@ -25,7 +25,7 @@ const sequelize = new Sequelize( dbName, dbUsername, dbPassword, {
             username: dbUsername,
             password: dbPassword,
         },
-    }
+    },
 })
 
 const sequelizeTr = async (options?: TransactionOptions) => await sequelize.transaction(options)
@@ -46,6 +46,5 @@ process.on('SIGINT', async () => {
 })
 
 export { sequelize, DataTypes, sequelizeTr }
-
 
 export default sequelize

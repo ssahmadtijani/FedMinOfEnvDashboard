@@ -1,4 +1,4 @@
-import { sequelize, DataTypes } from '../config/database';
+import { sequelize, DataTypes } from '../config/database'
 import { ProjectsModelI } from '../interface/projects.interface'
 
 export const Projects = sequelize.define<ProjectsModelI>(
@@ -71,7 +71,7 @@ export const Projects = sequelize.define<ProjectsModelI>(
             type: DataTypes.DATE,
             allowNull: false,
         },
-        
+
         updatedByUserId: {
             type: DataTypes.UUID,
             references: {
@@ -83,5 +83,5 @@ export const Projects = sequelize.define<ProjectsModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )

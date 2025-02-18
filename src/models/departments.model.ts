@@ -1,5 +1,5 @@
-import { sequelize, DataTypes } from '../config/database';
-import { DepartmentsModelI } from '../interface/departments.interface';
+import { sequelize, DataTypes } from '../config/database'
+import { DepartmentsModelI } from '../interface/departments.interface'
 
 export const Departments = sequelize.define<DepartmentsModelI>(
     'Departments',
@@ -17,7 +17,7 @@ export const Departments = sequelize.define<DepartmentsModelI>(
         departmentShortName: {
             type: DataTypes.STRING,
         },
-        
+
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -26,5 +26,5 @@ export const Departments = sequelize.define<DepartmentsModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )

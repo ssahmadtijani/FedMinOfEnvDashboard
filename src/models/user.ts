@@ -1,5 +1,5 @@
-import { sequelize, DataTypes } from '../config/database';
-import { UsersModelI } from '../interface/users.interface';
+import { sequelize, DataTypes } from '../config/database'
+import { UsersModelI } from '../interface/users.interface'
 
 export const Users = sequelize.define<UsersModelI>(
     'Users',
@@ -12,16 +12,6 @@ export const Users = sequelize.define<UsersModelI>(
 
         userName: {
             type: DataTypes.STRING,
-        },
-
-        firstName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: false,
         },
 
         email: {
@@ -40,11 +30,16 @@ export const Users = sequelize.define<UsersModelI>(
                 key: 'departmentId',
             },
         },
+
+        password: {
+            type: DataTypes.STRING
+        },
+
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
         },
-        
+
         updatedAt: {
             type: DataTypes.DATE,
         },
@@ -52,5 +47,5 @@ export const Users = sequelize.define<UsersModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )

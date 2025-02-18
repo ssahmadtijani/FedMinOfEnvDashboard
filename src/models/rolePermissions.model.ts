@@ -25,7 +25,7 @@ export const RolePermission = sequelize.define<RolePermissionModelI>(
                 key: 'permissionId',
             },
         },
-        
+
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -34,5 +34,5 @@ export const RolePermission = sequelize.define<RolePermissionModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )

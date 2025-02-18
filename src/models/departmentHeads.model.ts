@@ -51,5 +51,5 @@ export const DepartmentHeads = sequelize.define<DepartmentHeadsModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )

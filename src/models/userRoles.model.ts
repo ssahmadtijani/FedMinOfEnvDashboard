@@ -33,5 +33,5 @@ export const UserRoles = sequelize.define<UserRolesModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )

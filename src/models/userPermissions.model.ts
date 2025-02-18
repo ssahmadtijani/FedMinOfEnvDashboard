@@ -25,7 +25,7 @@ export const UserPermissions = sequelize.define<UserPermissionsModelI>(
                 key: 'permissionId',
             },
         },
-        
+
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -34,5 +34,5 @@ export const UserPermissions = sequelize.define<UserPermissionsModelI>(
     {
         paranoid: true,
         freezeTableName: true,
-    }
+    },
 )
