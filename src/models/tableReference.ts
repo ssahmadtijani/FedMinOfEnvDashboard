@@ -71,7 +71,7 @@ Users.hasMany(UserRoles, {
 
 // UserRoles and Roles
 UserRoles.belongsTo(Roles, {
-    foreignKey: 'roleId',
+    foreignKey: 'roleId', as: 'role'
 })
 Roles.hasMany(UserRoles, {
     foreignKey: 'roleId',

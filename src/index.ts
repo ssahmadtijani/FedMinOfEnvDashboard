@@ -3,8 +3,9 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import helmet from 'helmet'
 import { sequelize } from './config/database'
-import routes from "./routes"
+import routes from './routes'
 import passport from 'passport'
+import './models'
 
 dotenv.config()
 
