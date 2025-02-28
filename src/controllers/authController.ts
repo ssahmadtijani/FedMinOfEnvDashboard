@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import { Users } from '../models/user'
 import passport from '../config/passport'
 import { UsersAttr } from '../interface/users.interface'
+import { UserPasswords } from '../models/userPasswords.model'
 
 dotenv.config()
 
@@ -19,12 +20,18 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
-    await Users.create({
+    const user = await Users.create({
       email,
       userName,
       phoneNumber,
-      password: hashedPassword,
       departmentId,
+    })
+
+    const { userId } = user
+
+    await UserPasswords.create({
+      userId: userId!,
+      password: hashedPassword
     })
 
     res.status(201).json({ message: "User registered successfully" })

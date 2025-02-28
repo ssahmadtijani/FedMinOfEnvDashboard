@@ -12,25 +12,22 @@ export const hasAccess = (role: string) => {
       throw "Unauthorized access" 
     }
 
-    console.log(UserRoles.associations)
-
     const userRole = await UserRoles.findOne({
       where: { userId: user.userId },
       include: [
         {
           model: Roles,
-          as: 'role',
           attributes: ["roleName"],
-        },
+        }
       ],
     })
 
-    if (!userRole || !userRole.role) {
-      throw "User does not have a role yet"
+    if (!userRole || !userRole.Role) {
+      throw new Error("User does not have a role yet")
     }
 
-    if (userRole.role.roleName  !== role) {
-     throw "Forbidden: Access denied"
+    if (userRole.Role.roleName  !== role) {
+     throw new Error("Forbidden: Access denied")
     }
 
     next()

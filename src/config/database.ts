@@ -11,7 +11,7 @@ const dbName = `${process.env.DB_NAME}`
 const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
     host: dbServer,
     dialect: 'mysql',
-    logging: false,
+    logging: (msg) => console.log(`[SEQUELIZE]: ${msg}`),
     replication: {
         read: [
             {

@@ -7,6 +7,7 @@ export { UserPermissions } from './userPermissions.model'
 export { UserRoles } from './userRoles.model'
 export { Roles } from './roles.model'
 export { Users } from './user'
+export { UserPasswords } from './userPasswords.model'
 
 // load the relationship references
-import './tableReferences'
+import './tableReference'

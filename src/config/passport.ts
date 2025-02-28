@@ -4,6 +4,7 @@ import passport from "passport"
 import dotenv from "dotenv"
 import bcrypt from "bcryptjs"
 import { Users } from "../models/user"
+import { UserPasswords } from "../models"
 
 dotenv.config()
 
@@ -16,7 +17,15 @@ passport.use(
         const user = await Users.findOne({ where: { email } })
         if (!user) return done(null, false, { message: "Invalid credentials" })
 
-        const isMatch = await bcrypt.compare(password, user.password)
+        const userPassword = await UserPasswords.findOne({
+          where: {
+            userId: user.userId
+          }
+        })
+
+        if (!userPassword) return done (null, false, { message: "User is not registered" })
+
+        const isMatch = await bcrypt.compare(password, userPassword.password)
         if (!isMatch) return done(null, false, { message: "Invalid credentials" })
 
         return done(null, user)

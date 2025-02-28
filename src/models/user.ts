@@ -31,10 +31,6 @@ export const Users = sequelize.define<UsersModelI>(
             },
         },
 
-        password: {
-            type: DataTypes.STRING
-        },
-
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,

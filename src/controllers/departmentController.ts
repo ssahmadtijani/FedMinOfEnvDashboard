@@ -7,19 +7,20 @@ export const addDepartment = async (req: Request, res: Response): Promise<void> 
       const { departmentName, departmentShortName } = req.body
 
       if (!departmentName) {
-        throw "Department name is required"
+        throw new Error("Department name is required")
       }
 
       const existingDepartment = await Departments.findOne({ where: { departmentName } })
+    
       if (existingDepartment) {
-        throw "Department already exists" 
+        throw new Error("Department already exists" )
       }
 
       const department = await Departments.create({ departmentName, departmentShortName })
      res.status(201).json({ message: "Department created", department })
      return
     } catch (error) {
-      throw `Error occurred while creating department: ${error}`
+      throw new Error(`Error occurred while creating department: ${error}`)
     }
 }
 

@@ -7,6 +7,7 @@ import { UserPermissions } from './userPermissions.model'
 import { UserRoles } from './userRoles.model'
 import { Roles } from './roles.model'
 import { Users } from './user'
+import { UserPasswords } from './userPasswords.model'
 
 // Users and Departments
 Users.belongsTo(Departments, {
@@ -71,7 +72,7 @@ Users.hasMany(UserRoles, {
 
 // UserRoles and Roles
 UserRoles.belongsTo(Roles, {
-    foreignKey: 'roleId', as: 'role'
+    foreignKey: 'roleId',
 })
 Roles.hasMany(UserRoles, {
     foreignKey: 'roleId',
@@ -108,3 +109,14 @@ RolePermission.belongsTo(Permissions, {
 Permissions.hasMany(RolePermission, {
     foreignKey: 'permissionId',
 })
+
+//User and UserPasswords
+Users.hasOne(UserPasswords, {
+    foreignKey: 'userId',
+  })
+  
+// UserPasswords Model
+UserPasswords.belongsTo(Users, {
+foreignKey: 'userId',
+})
+  

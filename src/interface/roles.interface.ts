@@ -13,7 +13,7 @@ export interface UserRolesAttr {
     roleId?: string
     userId?: string
     createdAt?: Date
-    role?: RolesModelI
+    Role?: RolesModelI
 }
 
 export interface UserRolesModelI extends Model<UserRolesAttr>, UserRolesAttr {}
