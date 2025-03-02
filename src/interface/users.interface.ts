@@ -6,6 +6,7 @@ export interface UsersAttr {
     email: string
     phoneNumber?: string
     departmentId: string
+    isVerified: boolean
     createdAt?: Date
     updatedAt?: Date
 }
@@ -19,5 +20,7 @@ export interface UserPasswordsAttr {
     deletedAt?: Date
 }
 
-export interface UsersModelI extends Model<UsersAttr>, UsersAttr {}
+export interface UsersModelI extends Model<UsersAttr>, UsersAttr {
+    UserRoles: any
+}
 export interface UserPasswordsModelI extends Model<UserPasswordsAttr>, UserPasswordsAttr {}

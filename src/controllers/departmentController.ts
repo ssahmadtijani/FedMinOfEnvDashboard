@@ -1,6 +1,5 @@
 import { Departments } from "../models/departments.model"
-import { Request, Response } from "express";
-
+import { Request, Response } from "express"
 
 export const addDepartment = async (req: Request, res: Response): Promise<void>  => {
     try {

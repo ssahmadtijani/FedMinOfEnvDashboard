@@ -31,6 +31,11 @@ export const Users = sequelize.define<UsersModelI>(
             },
         },
 
+        isVerified: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
